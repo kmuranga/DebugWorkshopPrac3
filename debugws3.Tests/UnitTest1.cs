@@ -38,7 +38,7 @@ namespace Tests
     public void DoPlus(string value)
     {
       var result = Calc.Calculate(value);
-      Assert.IsTrue(result.result == 6, $"{value} should be 6");
+      Assert.IsTrue(result.result == 6, $"{value} should be 92");
     }
 
     [DataTestMethod]
@@ -51,6 +51,13 @@ namespace Tests
     {
       var result = Calc.Calculate(value);
       Assert.IsTrue(result.result == 1, $"{value} should be 1");
+    }
+
+    [DataTestMethod]
+    [DataRow("100-3*64")]
+    public void PrecedenceOrder(string value){
+      var result = Calc.Calculate(value);
+      Assert.IsTrue(result.result == -92, $"{value} should be -92");
     }
   }
 }
